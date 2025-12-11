@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | AURA</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+            <img src="assets/logo-transparent.png" alt="AURA ロゴ" />
+          </a>
+        </div>
+        <button class="menu-toggle" aria-label="メニューを開閉">
+          <span></span>
+        </button>
+        <nav class="nav-links">
+          <a href="index.html">ホーム</a>
+          <a href="about.html">AURAについて</a>
+          <a href="services.html">サービス</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="min-height: 55vh">
+        <div
+          class="bg"
+          style="background-image: url('assets/LINE_ALBUM_20251209_251209_15.jpg')"
+        ></div>
+        <div class="hero-content fade-in">
+          <div class="eyebrow">Contact</div>
+          <h1>体験予約・お問い合わせ</h1>
+          <p>姿勢改善、美ボディづくり、産後ケアなど、お気軽にご相談ください。</p>
+        </div>
+      </section>
+
+      <section class="section light">
+        <div class="container two-column">
+          <div class="contact-card fade-in" id="reserve">
+            <h2>お問い合わせフォーム</h2>
+            <form>
+              <div>
+                <label for="name">お名前</label>
+                <input id="name" name="name" type="text" placeholder="山田 花子" required />
+              </div>
+              <div>
+                <label for="email">メールアドレス</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div>
+                <label for="topic">ご相談内容</label>
+                <select id="topic" name="topic" required>
+                  <option value="">選択してください</option>
+                  <option>開業計画について相談したい</option>
+                  <option>機器導入について相談したい</option>
+                  <option>集客・LP制作について相談したい</option>
+                  <option>その他</option>
+                </select>
+              </div>
+              <div>
+                <label for="message">詳細</label>
+                <textarea id="message" name="message" placeholder="ご希望の開業時期、エリア、イメージなど"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">送信</button>
+            </form>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn btn-line" href="https://line.me/R/">LINEで問い合わせ</a>
+            </div>
+          </div>
+          <div class="fade-in">
+            <h2>会社情報</h2>
+            <p>
+              姿勢改善からボディメイク、産後ケアまでトータルでサポート。<br />
+              お気軽にお問い合わせください。
+            </p>
+            <p>
+              Instagram: <a href="#">@aura_pilates</a><br />
+              Mail: contact@aura.studio<br />
+              Hours: 7:00 - 22:00（年末年始休業）
+            </p>
+            <img src="assets/LINE_ALBUM_20251209_251209_1.jpg" alt="スタジオイメージ" style="border-radius: 14px; box-shadow: var(--shadow)" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © AURA Pilates Studio Support
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
