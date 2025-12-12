@@ -1,7 +1,7 @@
 ## デプロイメモ (Surge)
 
-- 本番: https://aura-pilates-aura-251209.surge.sh
-- ライブプレビュー（直近デプロイ時の一時URL）: https://1765287362524-aura-pilates-aura-251209.surge.sh
+- 本番: https://aura-lp-20251211.surge.sh
+- ライブプレビュー（直近デプロイ時の一時URL）: https://1765452116427-aura-lp-20251211.surge.sh
 
 ### 本番とライブプレビューの違い
 - 本番: 指定ドメインに公開された安定版。リンク共有は基本こちらを利用。
