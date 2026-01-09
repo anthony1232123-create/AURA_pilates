@@ -2,6 +2,20 @@
 
 AURA Pilates Studioの公式ウェブサイトです。
 
+## GitHubリポジトリ
+
+- **リポジトリURL**: https://github.com/anthony1232123-create/AURA_pilates.git
+- **GitHubページ**: https://github.com/anthony1232123-create/AURA_pilates
+
+### Git操作コマンド
+
+```bash
+# 変更をコミットしてプッシュする場合
+git add .
+git commit -m "変更内容の説明"
+git push origin main
+```
+
 ## デプロイ情報
 
 ### Surge
