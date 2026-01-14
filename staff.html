@@ -6,6 +6,155 @@
     <title>AURA | スタッフ紹介</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* ===========================
+         AURA / Moving Artworks (Type A,B,C)
+         =========================== */
+
+      /* 画像コンテナ（オーラの基準点） */
+      .staff-image-container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* 共通：背面に出る"オーラ" */
+      .aura-art {
+        position: absolute;
+        width: 125%;
+        height: 125%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.5;
+        filter: blur(35px);
+        will-change: transform, border-radius, opacity;
+      }
+
+      /* --- Type A: Radiant Gradient（輝きのグラデーション） --- */
+      @keyframes auraA-morph-rotate {
+        0%, 100% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
+        }
+        33% {
+          border-radius: 35% 65% 60% 40% / 55% 40% 60% 45%;
+          transform: translate(-50%, -50%) rotate(14deg) scale(1.08);
+        }
+        66% {
+          border-radius: 55% 45% 40% 60% / 40% 60% 35% 65%;
+          transform: translate(-50%, -50%) rotate(28deg) scale(0.98);
+        }
+      }
+
+      .aura-type-a {
+        background:
+          radial-gradient(circle at 28% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.0) 55%),
+          radial-gradient(circle at 74% 72%, rgba(242,230,216,0.9) 0%, rgba(242,230,216,0.0) 60%),
+          linear-gradient(135deg, rgba(232,220,208,1.0) 0%, rgba(255,255,255,0.6) 35%, rgba(212,196,183,0.95) 100%);
+        animation: auraA-morph-rotate 22s ease-in-out infinite;
+        animation-delay: -1.6s;
+      }
+
+      /* --- Type B: Layered Energy（重なるエネルギー） --- */
+      @keyframes auraB-back {
+        0%, 100% {
+          border-radius: 62% 38% 45% 55% / 55% 45% 55% 45%;
+          transform: translate(-50%, -50%) rotate(0deg) scale(1.16) translate(-10px, 4px);
+        }
+        50% {
+          border-radius: 40% 60% 55% 45% / 45% 55% 40% 60%;
+          transform: translate(-50%, -50%) rotate(18deg) scale(1.22) translate(6px, -10px);
+        }
+      }
+
+      @keyframes auraB-front {
+        0%, 100% {
+          border-radius: 45% 55% 60% 40% / 55% 45% 40% 60%;
+          transform: translate(-50%, -50%) rotate(0deg) scale(0.92) translate(18px, -10px);
+          opacity: 0.44;
+        }
+        50% {
+          border-radius: 60% 40% 45% 55% / 40% 60% 55% 45%;
+          transform: translate(-50%, -50%) rotate(-22deg) scale(0.98) translate(6px, 8px);
+          opacity: 0.34;
+        }
+      }
+
+      .aura-layer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        pointer-events: none;
+      }
+
+      .aura-type-b .aura-layer.back {
+        background:
+          radial-gradient(circle at 35% 30%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.0) 60%),
+          radial-gradient(circle at 72% 72%, rgba(232,220,208,0.86) 0%, rgba(232,220,208,0.0) 62%);
+        opacity: 0.45;
+        filter: blur(35px);
+        animation: auraB-back 28s ease-in-out infinite;
+        animation-delay: -3.1s;
+      }
+
+      .aura-type-b .aura-layer.front {
+        background:
+          radial-gradient(circle at 45% 35%, rgba(237,216,213,0.96) 0%, rgba(237,216,213,0.0) 62%),
+          radial-gradient(circle at 78% 76%, rgba(212,196,183,0.76) 0%, rgba(212,196,183,0.0) 60%);
+        opacity: 0.5;
+        filter: blur(35px);
+        animation: auraB-front 18s ease-in-out infinite;
+        animation-delay: -1.2s;
+      }
+
+      /* --- Type C: Ripple Pulse（波紋と鼓動） --- */
+      @keyframes auraC-pulse {
+        0%   { transform: translate(-50%, -50%) scale(0.92); opacity: 0.3; }
+        45%  { transform: translate(-50%, -50%) scale(1.06); opacity: 0.2; }
+        100% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.3; }
+      }
+
+      .aura-type-c {
+        opacity: 1;
+        filter: blur(40px);
+      }
+
+      .aura-type-c .ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 112%;
+        height: 112%;
+        border-radius: 9999px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(242,230,216,0.0) 36%, rgba(200,184,168,0.5) 60%, rgba(200,184,168,0.0) 74%);
+        animation: auraC-pulse 20s ease-in-out infinite;
+      }
+
+      .aura-type-c .ring.r2 {
+        width: 98%;
+        height: 98%;
+        left: 52%;
+        top: 48%;
+        animation-duration: 24s;
+        animation-delay: -4.2s;
+        opacity: 0.25;
+      }
+
+      .aura-type-c .ring.r3 {
+        width: 84%;
+        height: 84%;
+        left: 47%;
+        top: 54%;
+        animation-duration: 18s;
+        animation-delay: -1.8s;
+        opacity: 0.3;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -34,7 +183,7 @@
         <div class="hero-content fade-in">
           <div class="eyebrow">Staff</div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-wide" style="font-family: 'Shippori Mincho', serif;">
-            The Specialists
+            スタッフ紹介
           </h1>
           <p class="text-lg md:text-xl text-white/90 tracking-wide">
             美の頂点を知る、プロフェッショナルたち。
@@ -54,7 +203,14 @@
               World Class Beauty Standards
             </h2>
             <p class="text-base md:text-lg leading-relaxed" style="color: #555; line-height: 1.9;">
-              AURAには、世界的なフィットネスコンテスト「WFF」や「WBFF」で活躍する現役のプロ選手が在籍しています。これらは単に筋肉の大きさを競う大会ではありません。身体のプロポーション、立ち振る舞い、ファッション、そして知性。そのすべてが調和した「トータルビューティー」が審査される、美のエンターテインメントです。自らの身体で世界基準の審査をクリアしてきた知見。それは机上の空論ではない、確かな「美の正解」です。
+              AURAには、世界的なフィットネスコンテスト<br />
+              「WFF」や「WBFF」で活躍する現役のプロ選手が在籍しています。<br />
+              これらは単に筋肉の大きさを競う大会ではありません。<br />
+              身体のプロポーション、立ち振る舞い、ファッション、そして知性。<br />
+              そのすべてが調和した「トータルビューティー」が審査される、<br />
+              美のエンターテインメントです。<br />
+              自らの身体で世界基準の審査をクリアしてきた知見。<br />
+              それは机上の空論ではない、確かな「美の正解」です。
             </p>
           </div>
         </div>
@@ -72,10 +228,9 @@
             <div class="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16">
               <!-- 画像エリア（左） -->
               <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start px-4 md:px-0">
-                <div class="relative w-full max-w-md">
-                  <!-- 背景シェイプ -->
-                  <div class="absolute inset-0 bg-gradient-to-br from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
-                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-beige rounded-full opacity-40 -z-10"></div>
+                <div class="relative w-full max-w-md staff-image-container">
+                  <!-- AURA / Moving Artworks - Type A -->
+                  <div class="aura-art aura-type-a"></div>
                   <!-- 画像 -->
                   <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
                     <img src="assets/Toma.png" alt="Toma" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
@@ -104,10 +259,12 @@
             <div class="flex flex-col md:flex-row-reverse md:items-center md:gap-12 lg:gap-16">
               <!-- 画像エリア（右） -->
               <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-end px-4 md:px-0">
-                <div class="relative w-full max-w-md">
-                  <!-- 背景シェイプ -->
-                  <div class="absolute inset-0 bg-gradient-to-bl from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
-                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-gold rounded-full opacity-40 -z-10"></div>
+                <div class="relative w-full max-w-md staff-image-container">
+                  <!-- AURA / Moving Artworks - Type B -->
+                  <div class="aura-art aura-type-b">
+                    <div class="aura-layer back"></div>
+                    <div class="aura-layer front"></div>
+                  </div>
                   <!-- 画像 -->
                   <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
                     <img src="assets/Haruna.png" alt="Haruna" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
@@ -135,10 +292,13 @@
             <div class="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16">
               <!-- 画像エリア（左） -->
               <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start px-4 md:px-0">
-                <div class="relative w-full max-w-md">
-                  <!-- 背景シェイプ -->
-                  <div class="absolute inset-0 bg-gradient-to-br from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
-                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-beige rounded-full opacity-40 -z-10"></div>
+                <div class="relative w-full max-w-md staff-image-container">
+                  <!-- AURA / Moving Artworks - Type C -->
+                  <div class="aura-art aura-type-c">
+                    <div class="ring"></div>
+                    <div class="ring r2"></div>
+                    <div class="ring r3"></div>
+                  </div>
                   <!-- 画像 -->
                   <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
                     <img src="assets/Takuma.png" alt="Takuma" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
@@ -167,10 +327,9 @@
             <div class="flex flex-col md:flex-row-reverse md:items-center md:gap-12 lg:gap-16">
               <!-- 画像エリア（右） -->
               <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-end px-4 md:px-0">
-                <div class="relative w-full max-w-md">
-                  <!-- 背景シェイプ -->
-                  <div class="absolute inset-0 bg-gradient-to-bl from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
-                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-gold rounded-full opacity-40 -z-10"></div>
+                <div class="relative w-full max-w-md staff-image-container">
+                  <!-- AURA / Moving Artworks - Type A -->
+                  <div class="aura-art aura-type-a" style="animation-delay: -6.2s;"></div>
                   <!-- 画像 -->
                   <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
                     <img src="assets/Naoki.png" alt="Naoki" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
