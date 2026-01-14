@@ -8,151 +8,93 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       /* ===========================
-         AURA / Moving Artworks (Type A,B,C)
+         AURA / Moving Artworks (Type A,B,C,D) - Compact & Colorful
          =========================== */
 
-      /* 画像コンテナ（オーラの基準点） */
       .staff-image-container {
         position: relative;
         z-index: 1;
       }
 
-      /* 共通：背面に出る"オーラ" */
+      /* 共通設定：サイズを少し小さくしたよ！ */
       .aura-art {
         position: absolute;
-        width: 125%;
-        height: 125%;
+        width: 110%;  /* 140% -> 110% に縮小 */
+        height: 110%; /* 文字への干渉を防ぐ */
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: -1;
         pointer-events: none;
-        opacity: 0.5;
-        filter: blur(35px);
+        opacity: 0.75;
+        filter: blur(35px); /* ぼかしも少し調整 */
         will-change: transform, border-radius, opacity;
       }
 
-      /* --- Type A: Radiant Gradient（輝きのグラデーション） --- */
-      @keyframes auraA-morph-rotate {
-        0%, 100% {
-          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
-        }
-        33% {
-          border-radius: 35% 65% 60% 40% / 55% 40% 60% 45%;
-          transform: translate(-50%, -50%) rotate(14deg) scale(1.08);
-        }
-        66% {
-          border-radius: 55% 45% 40% 60% / 40% 60% 35% 65%;
-          transform: translate(-50%, -50%) rotate(28deg) scale(0.98);
-        }
+      /* --- Type A: Champagne Gold (Toma) --- */
+      @keyframes auraA-morph {
+        0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) rotate(0deg); }
+        50% { border-radius: 35% 65% 60% 40% / 55% 40% 60% 45%; transform: translate(-50%, -50%) rotate(180deg); }
       }
 
       .aura-type-a {
-        background:
-          radial-gradient(circle at 28% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.0) 55%),
-          radial-gradient(circle at 74% 72%, rgba(242,230,216,0.9) 0%, rgba(242,230,216,0.0) 60%),
-          linear-gradient(135deg, rgba(232,220,208,1.0) 0%, rgba(255,255,255,0.6) 35%, rgba(212,196,183,0.95) 100%);
-        animation: auraA-morph-rotate 22s ease-in-out infinite;
-        animation-delay: -1.6s;
+        /* オレンジ・ゴールド系 */
+        background: linear-gradient(135deg, rgba(235, 180, 130, 0.7) 0%, rgba(245, 210, 160, 0.5) 100%);
+        animation: auraA-morph 15s ease-in-out infinite;
       }
 
-      /* --- Type B: Layered Energy（重なるエネルギー） --- */
-      @keyframes auraB-back {
-        0%, 100% {
-          border-radius: 62% 38% 45% 55% / 55% 45% 55% 45%;
-          transform: translate(-50%, -50%) rotate(0deg) scale(1.16) translate(-10px, 4px);
-        }
-        50% {
-          border-radius: 40% 60% 55% 45% / 45% 55% 40% 60%;
-          transform: translate(-50%, -50%) rotate(18deg) scale(1.22) translate(6px, -10px);
-        }
+      /* --- Type B: Rose Quartz (Haruna) --- */
+      @keyframes auraB-move {
+        0%, 100% { transform: translate(-50%, -50%) scale(1.0); }
+        50% { transform: translate(-50%, -50%) scale(1.08); }
       }
 
-      @keyframes auraB-front {
-        0%, 100% {
-          border-radius: 45% 55% 60% 40% / 55% 45% 40% 60%;
-          transform: translate(-50%, -50%) rotate(0deg) scale(0.92) translate(18px, -10px);
-          opacity: 0.44;
-        }
-        50% {
-          border-radius: 60% 40% 45% 55% / 40% 60% 55% 45%;
-          transform: translate(-50%, -50%) rotate(-22deg) scale(0.98) translate(6px, 8px);
-          opacity: 0.34;
-        }
-      }
-
-      .aura-layer {
+      .aura-type-b .aura-layer {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 120%;
-        height: 120%;
-        pointer-events: none;
+        top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 100%; height: 100%;
+        border-radius: 50%;
       }
 
       .aura-type-b .aura-layer.back {
-        background:
-          radial-gradient(circle at 35% 30%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.0) 60%),
-          radial-gradient(circle at 72% 72%, rgba(232,220,208,0.86) 0%, rgba(232,220,208,0.0) 62%);
-        opacity: 0.45;
-        filter: blur(35px);
-        animation: auraB-back 28s ease-in-out infinite;
-        animation-delay: -3.1s;
+        /* ピンクベージュ系 */
+        background: radial-gradient(circle, rgba(230, 160, 170, 0.6) 0%, transparent 70%);
+        animation: auraB-move 6s ease-in-out infinite alternate;
       }
 
       .aura-type-b .aura-layer.front {
-        background:
-          radial-gradient(circle at 45% 35%, rgba(237,216,213,0.96) 0%, rgba(237,216,213,0.0) 62%),
-          radial-gradient(circle at 78% 76%, rgba(212,196,183,0.76) 0%, rgba(212,196,183,0.0) 60%);
-        opacity: 0.5;
-        filter: blur(35px);
-        animation: auraB-front 18s ease-in-out infinite;
-        animation-delay: -1.2s;
+        /* 少し濃いローズ */
+        background: radial-gradient(circle, rgba(240, 180, 190, 0.5) 0%, transparent 70%);
+        animation: auraB-move 9s ease-in-out infinite alternate-reverse;
       }
 
-      /* --- Type C: Ripple Pulse（波紋と鼓動） --- */
+      /* --- Type C: Sage Green (Takuma) --- */
       @keyframes auraC-pulse {
-        0%   { transform: translate(-50%, -50%) scale(0.92); opacity: 0.3; }
-        45%  { transform: translate(-50%, -50%) scale(1.06); opacity: 0.2; }
-        100% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.3; }
+        0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+        50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
       }
 
-      .aura-type-c {
-        opacity: 1;
-        filter: blur(40px);
-      }
-
+      .aura-type-c { background: none; }
       .aura-type-c .ring {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 112%;
-        height: 112%;
-        border-radius: 9999px;
-        transform: translate(-50%, -50%);
-        background: radial-gradient(circle, rgba(242,230,216,0.0) 36%, rgba(200,184,168,0.5) 60%, rgba(200,184,168,0.0) 74%);
-        animation: auraC-pulse 20s ease-in-out infinite;
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 100%; height: 100%; border-radius: 50%;
+        /* グリーン・セージ系 */
+        background: radial-gradient(circle, transparent 30%, rgba(140, 180, 160, 0.5) 50%, transparent 70%);
+        animation: auraC-pulse 8s ease-in-out infinite;
+      }
+      .aura-type-c .ring.r2 { animation-delay: -2s; background: radial-gradient(circle, transparent 20%, rgba(160, 190, 170, 0.4) 50%, transparent 80%); }
+
+      /* --- Type D: Platinum Blue (Naoki) --- */
+      @keyframes auraD-flow {
+        0% { border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%; transform: translate(-50%, -50%) rotate(0deg) scale(1.0); }
+        50% { border-radius: 60% 40% 30% 70% / 70% 60% 30% 40%; transform: translate(-50%, -50%) rotate(90deg) scale(1.05); }
+        100% { border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%; transform: translate(-50%, -50%) rotate(180deg) scale(1.0); }
       }
 
-      .aura-type-c .ring.r2 {
-        width: 98%;
-        height: 98%;
-        left: 52%;
-        top: 48%;
-        animation-duration: 24s;
-        animation-delay: -4.2s;
-        opacity: 0.25;
-      }
-
-      .aura-type-c .ring.r3 {
-        width: 84%;
-        height: 84%;
-        left: 47%;
-        top: 54%;
-        animation-duration: 18s;
-        animation-delay: -1.8s;
-        opacity: 0.3;
+      .aura-type-d {
+        /* プラチナブルー系 */
+        background: linear-gradient(135deg, rgba(180, 200, 220, 0.6) 0%, rgba(200, 220, 240, 0.4) 100%);
+        animation: auraD-flow 18s ease-in-out infinite;
       }
     </style>
   </head>
@@ -297,7 +239,6 @@
                   <div class="aura-art aura-type-c">
                     <div class="ring"></div>
                     <div class="ring r2"></div>
-                    <div class="ring r3"></div>
                   </div>
                   <!-- 画像 -->
                   <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
@@ -328,8 +269,8 @@
               <!-- 画像エリア（右） -->
               <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-end px-4 md:px-0">
                 <div class="relative w-full max-w-md staff-image-container">
-                  <!-- AURA / Moving Artworks - Type A -->
-                  <div class="aura-art aura-type-a" style="animation-delay: -6.2s;"></div>
+                  <!-- AURA / Moving Artworks - Type D -->
+                  <div class="aura-art aura-type-d"></div>
                   <!-- 画像 -->
                   <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
                     <img src="assets/Naoki.png" alt="Naoki" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
