@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AURA | スタッフ紹介</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'aura-beige': '#E5DED3',
+              'aura-gold': '#D4A59A',
+              'aura-primary': '#c97b6b',
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -38,89 +52,139 @@
         </div>
       </section>
 
-      <section class="section light">
+      <section id="instructors" class="section light">
         <div class="container">
           <div class="section-title fade-in">
             <h2>Member</h2>
             <p>それぞれの強みで、あなたの理想に寄り添います。</p>
           </div>
 
-          <div class="staff-grid">
-            <article class="staff-card fade-in">
-              <div class="staff-photo">
-                <img src="assets/Toma.png" alt="Toma" />
-              </div>
-              <div>
-                <h3 class="staff-name">Toma</h3>
-                <div class="staff-meta">
-                  <div><span class="label">得意なこと：</span>ボディメイク、コンディショニング整体、姿勢改善、不調・痛み・疲労のケア</div>
-                  <div><span class="label">趣味：</span>日記、アニメ鑑賞</div>
+          <!-- Toma - 左画像・右テキスト -->
+          <article class="fade-in my-24 md:my-32 px-4 md:px-0">
+            <div class="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16">
+              <!-- 画像エリア（左） -->
+              <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start px-4 md:px-0">
+                <div class="relative w-full max-w-md">
+                  <!-- 背景シェイプ -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-beige rounded-full opacity-40 -z-10"></div>
+                  <!-- 画像 -->
+                  <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
+                    <img src="assets/Toma.png" alt="Toma" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
+                  </div>
                 </div>
-                <p class="staff-bio">
+              </div>
+              <!-- テキストエリア（右） -->
+              <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4 px-4 md:px-0">
+                <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Toma</h3>
+                <div class="space-y-2 text-sm md:text-base text-gray-600 mb-6">
+                  <div><span class="font-semibold text-gray-700">得意なこと：</span>ボディメイク、コンディショニング整体、姿勢改善、不調・痛み・疲労のケア</div>
+                  <div><span class="font-semibold text-gray-700">趣味：</span>日記、アニメ鑑賞</div>
+                </div>
+                <p class="text-sm md:text-lg text-gray-700 leading-relaxed">
                   はじめまして、Tomaです。<br />
-                  “出会った方の人生を豊かにする”をテーマにパーソナルトレーニングや整体をしています。思えば、僕の人生も人との出会いでますます好転して参りました。得意で好きなボディメイクを通して皆様の人生に寄り添います。<br />
+                  "出会った方の人生を豊かにする"をテーマにパーソナルトレーニングや整体をしています。思えば、僕の人生も人との出会いでますます好転して参りました。得意で好きなボディメイクを通して皆様の人生に寄り添います。<br />
                   2024年スポーツモデルカテゴリで初挑戦で初優勝。以降コンテストに出場しながらコツコツと自分磨きをしています。<br />
                   一期一会、皆様にお会いする日を楽しみにお待ちしております。
                 </p>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="staff-card fade-in">
-              <div class="staff-photo">
-                <img src="assets/Haruna.png" alt="Haruna" />
-              </div>
-              <div>
-                <h3 class="staff-name">Haruna</h3>
-                <div class="staff-meta">
-                  <div><span class="label">得意なこと：</span>ボディメイク、無理しない体作り</div>
-                  <div><span class="label">趣味：</span>体の勉強</div>
+          <!-- Haruna - 右画像・左テキスト -->
+          <article class="fade-in my-24 md:my-32 px-4 md:px-0">
+            <div class="flex flex-col md:flex-row-reverse md:items-center md:gap-12 lg:gap-16">
+              <!-- 画像エリア（右） -->
+              <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-end px-4 md:px-0">
+                <div class="relative w-full max-w-md">
+                  <!-- 背景シェイプ -->
+                  <div class="absolute inset-0 bg-gradient-to-bl from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-gold rounded-full opacity-40 -z-10"></div>
+                  <!-- 画像 -->
+                  <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
+                    <img src="assets/Haruna.png" alt="Haruna" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
+                  </div>
                 </div>
-                <p class="staff-bio">
+              </div>
+              <!-- テキストエリア（左） -->
+              <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4 px-4 md:px-0">
+                <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Haruna</h3>
+                <div class="space-y-2 text-sm md:text-base text-gray-600 mb-6">
+                  <div><span class="font-semibold text-gray-700">得意なこと：</span>ボディメイク、無理しない体作り</div>
+                  <div><span class="font-semibold text-gray-700">趣味：</span>体の勉強</div>
+                </div>
+                <p class="text-sm md:text-lg text-gray-700 leading-relaxed">
                   初めまして、Harunaです。心と体を、ふっと緩められる時間をお届けしたいと思っています。<br />
                   2025年にはマレーシアで開催されたWFFユニバースで優勝、WBFFではプロライセンスを取得しました。自身の競技経験を活かし、姿勢改善からボディメイク、大会を目指す方まで幅広くサポートします。<br />
                   お体のお悩みやボディメイクのこと、どんな小さなことでもお気軽にご相談ください。
                 </p>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="staff-card fade-in">
-              <div class="staff-photo">
-                <img src="assets/Takuma.png" alt="Takuma" />
-              </div>
-              <div>
-                <h3 class="staff-name">Takuma</h3>
-                <div class="staff-meta">
-                  <div><span class="label">得意なこと：</span>筋力トレーニング、ヒップアップ、ダイエット</div>
-                  <div><span class="label">趣味：</span>料理、美味しいコーヒーを飲む、カフェ巡り</div>
+          <!-- Takuma - 左画像・右テキスト -->
+          <article class="fade-in my-24 md:my-32 px-4 md:px-0">
+            <div class="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16">
+              <!-- 画像エリア（左） -->
+              <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-start px-4 md:px-0">
+                <div class="relative w-full max-w-md">
+                  <!-- 背景シェイプ -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-beige rounded-full opacity-40 -z-10"></div>
+                  <!-- 画像 -->
+                  <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
+                    <img src="assets/Takuma.png" alt="Takuma" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
+                  </div>
                 </div>
-                <p class="staff-bio">
+              </div>
+              <!-- テキストエリア（右） -->
+              <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4 px-4 md:px-0">
+                <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Takuma</h3>
+                <div class="space-y-2 text-sm md:text-base text-gray-600 mb-6">
+                  <div><span class="font-semibold text-gray-700">得意なこと：</span>筋力トレーニング、ヒップアップ、ダイエット</div>
+                  <div><span class="font-semibold text-gray-700">趣味：</span>料理、美味しいコーヒーを飲む、カフェ巡り</div>
+                </div>
+                <p class="text-sm md:text-lg text-gray-700 leading-relaxed">
                   Takumaです！<br />
                   元大手パーソナルジムでトレーナーとして経験を積み、現在はボディメイクコンテストに出場しながら活動しています。<br />
                   実は、もともとは運動が苦手でした。ですが、身体が変わっていく実感を通して、いつの間にか運動が「楽しいもの」へと変わりました。<br />
                   運動経験の有無に関わらず、「挑戦したい」という気持ちを大切にしています。ぜひ一緒に、楽しみながらボディメイクしていきましょう！
                 </p>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="staff-card fade-in">
-              <div class="staff-photo">
-                <img src="assets/Naoki.png" alt="Naoki" />
-              </div>
-              <div>
-                <h3 class="staff-name">Naoki</h3>
-                <div class="staff-meta">
-                  <div><span class="label">得意なこと：</span>姿勢改善、身体の引き締め、筋肥大トレーニング</div>
-                  <div><span class="label">趣味：</span>アサイーボウルを食べにいく</div>
+          <!-- Naoki - 右画像・左テキスト -->
+          <article class="fade-in my-24 md:my-32 px-4 md:px-0">
+            <div class="flex flex-col md:flex-row-reverse md:items-center md:gap-12 lg:gap-16">
+              <!-- 画像エリア（右） -->
+              <div class="relative w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:justify-end px-4 md:px-0">
+                <div class="relative w-full max-w-md">
+                  <!-- 背景シェイプ -->
+                  <div class="absolute inset-0 bg-gradient-to-bl from-aura-beige to-aura-gold rounded-full blur-2xl opacity-60 transform scale-110 -z-10"></div>
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-aura-gold rounded-full opacity-40 -z-10"></div>
+                  <!-- 画像 -->
+                  <div class="relative transform hover:scale-105 transition-transform duration-500 ease-out">
+                    <img src="assets/Naoki.png" alt="Naoki" class="w-full h-auto object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));" />
+                  </div>
                 </div>
-                <p class="staff-bio">
+              </div>
+              <!-- テキストエリア（左） -->
+              <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4 px-4 md:px-0">
+                <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Naoki</h3>
+                <div class="space-y-2 text-sm md:text-base text-gray-600 mb-6">
+                  <div><span class="font-semibold text-gray-700">得意なこと：</span>姿勢改善、身体の引き締め、筋肥大トレーニング</div>
+                  <div><span class="font-semibold text-gray-700">趣味：</span>アサイーボウルを食べにいく</div>
+                </div>
+                <p class="text-sm md:text-lg text-gray-700 leading-relaxed">
                   Naokiです！<br />
                   元自衛隊で元RIZAPトレーナーで現在は、ピラティスインストラクター兼パーソナルトレーナーをしています！<br />
                   2025年のコンテストでは3位に入賞し、自身のボディメイクにも探究心持って励んでおります。姿勢改善、身体の引き締めが得意です！<br />
                   お客様に寄り添い、最善のご提案とレッスンをさせていただきます。
                 </p>
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </section>
 
